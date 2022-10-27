@@ -31,7 +31,7 @@ def root():
         IMAGE_1,
         liz
     )
-    
+
     # Add icon 2 listitem
     liz = ListItem("[B]Image 2[/B] - Matrix background")
     liz.setArt({
@@ -42,10 +42,10 @@ def root():
         IMAGE_2,
         liz
     )
-    
+
     # merge both icons using PIL
     IMAGE_3 = mergeimages(IMAGE_1, IMAGE_2)
-    
+
     # finally add the image 3 (result from merging img 1 and img 2)
     liz = ListItem("[B]Image 3[/B] - Merged with PIL")
     liz.setArt({
@@ -71,7 +71,7 @@ def mergeimages(img1, img2):
     background.paste(kodilogo, (0, 0), kodilogo)
 
     # save to profile folder
-    final_path = os.path.join(xbmc.translatePath(addon_profile), "img%s.png" % time.time())
+    final_path = os.path.join(xbmcvfs.translatePath(addon_profile), "img%s.png" % time.time())
     background.save(final_path, "PNG")
     return final_path
 
